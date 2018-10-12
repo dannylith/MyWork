@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>Vending Machine</h1>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-8">
+                <div class="row" id="snacks">
+
+                </div>
+
+            </div>
+            <div class="col-4" id="sideBar">
+                <div>
+                    <h3>Total $:</h3>
+                </div>
+                <div><input id="displayMoney" type="text" class="form-control" value="0" readonly></div>
+                <div id="addMoney">
+
+                    <button type="button" class="btn btn-outline-primary col-5">Add Dollar</button>
+                    <button type="button" class="btn btn-outline-primary col-5">Add Quarter</button>
+                    <button type="button" class="btn btn-outline-primary col-5">Add Dime</button>
+                    <button type="button" class="btn btn-outline-primary col-5">Add Nickel</button>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h3>Messages</h3>
+
+                    <div><textarea id="messages" rows="4" cols="40" readonly></textarea></div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Item: </span>
+                        </div>
+                        <input id="itemNumber" type="text" class="form-control">
+                    </div>
+                    <div><button id="makePurchase" type="button" class="btn btn-outline-primary">Make Purchase</button></div>
+                </div>
+
+                <hr />
+
+                <div>
+                    <h3>Change</h3>
+
+                    <div><textarea id="changeText" rows="4" cols="30" readonly></textarea></div>
+                    <div><button id="returnChange" type="button" class="btn btn-outline-primary">Change Return</button></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

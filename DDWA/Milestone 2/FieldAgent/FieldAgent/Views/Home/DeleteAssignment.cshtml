@@ -1,0 +1,27 @@
+﻿@model FieldAgent.Domain.Assignment
+@{
+    ViewBag.Title = "DeleteAssignment";
+}
+
+<h2>Delete Assignment</h2>
+
+<div>
+    Are you sure you want to delete assignment @Model.AssignmentIdentifier located at 
+    @foreach (var c in (Dictionary<string, string>)ViewBag.countries)
+    {
+        if (Model.CountryCode == c.Key)
+        {
+            <span>@c.Value</span>
+        }
+    }
+</div>
+
+<p>Continue?</p>
+@using (Html.BeginForm("DeleteAssignment", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Identifier)
+    @Html.HiddenFor(m => m.AssignmentIdentifier)
+
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a href="/Home/Index" class="btn btn-secondary">Cancel</a>
+}

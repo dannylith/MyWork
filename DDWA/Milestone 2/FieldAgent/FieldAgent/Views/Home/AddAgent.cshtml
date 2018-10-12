@@ -1,0 +1,92 @@
+﻿@model FieldAgent.Models.AgentVM
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add An Agent</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    <h3>Field Agent</h3>
+    @Html.ValidationSummary()
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.FirstName)
+            @Html.TextBoxFor(m => m.Agent.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.FirstName)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.MiddleName)
+            @Html.TextBoxFor(m => m.Agent.MiddleName, new { @class = "form-control" })
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.LastName)
+            @Html.TextBoxFor(m => m.Agent.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.LastName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.BirthDate)
+            @Html.TextBoxFor(m => m.Agent.BirthDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.Agent.BirthDate)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.Height)
+            @Html.TextBoxFor(m => m.Agent.Height, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.Agent.Height)
+        </div>
+    </div>
+    <h3>Agency</h3>
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.Identifier)
+            @Html.TextBoxFor(m => m.Agent.Identifier, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.Identifier)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.Agency)
+            @Html.DropDownListFor(m => m.Agent.Agency, Model.Agencies, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.Agency)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.SecurityClearance)
+            @Html.DropDownListFor(m => m.Agent.SecurityClearance, Model.Clearances, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.SecurityClearance)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.ActivationDate)
+            @Html.TextBoxFor(m => m.Agent.ActivationDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.Agent.ActivationDate)
+        </div>
+        <div class="form-group col align-self-end">
+            <div class="form-check">
+                @Html.CheckBoxFor(m => m.Agent.IsActive, new { @class = "form-check-input" })
+                @Html.LabelFor(m => m.Agent.IsActive)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.Agent.PicturUrl)
+        @Html.TextBoxFor(m => m.Agent.PicturUrl, new { @class = "form-control", type = "url" })
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <h3>Aliases</h3>
+            <div class="row">
+                @foreach (var alias in Model.Aliases)
+                {
+                    <label class="col-4">
+                        <input type="checkbox" name="SelectedAliasIds" value="@alias.Id" @(Model.HasAlias(alias.Id) ? " checked" : "") />
+                        @alias.Name
+                    </label>
+                }
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Save</button>
+    <A class="btn btn-secondary" href="/">Cancel</A>
+}
+

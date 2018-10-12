@@ -1,0 +1,44 @@
+﻿@model FieldAgent.Domain.Assignment
+@{
+    ViewBag.Title = "AddAssignment";
+}
+
+<h2>Assignment</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="row">
+        <div class="form-group col">
+            @Html.Label("Field Agent")
+            @Html.DropDownListFor(m => m.Identifier, (IEnumerable<SelectListItem>)ViewBag.AllAgents, new { @class = "form-control" })
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.CountryCode)
+            @Html.DropDownListFor(m => m.CountryCode, new SelectList(ViewBag.countries, "Key", "Value"), "--Select One--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m=>m.CountryCode)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.StartDate)
+            @Html.TextBoxFor(m => m.StartDate, new { type = "date", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.StartDate)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.ProjectedEndDate)
+            @Html.TextBoxFor(m => m.ProjectedEndDate, new { type = "date", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ProjectedEndDate)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.ActualEndDate)
+            @Html.TextBoxFor(m => m.ActualEndDate, new { type = "date", @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Notes)
+        @Html.TextAreaFor(m => m.Notes, new { @class = "form-control", rows="8" })
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a href="/Home/Index" class="btn btn-secondary">Cancel</a>
+}
+

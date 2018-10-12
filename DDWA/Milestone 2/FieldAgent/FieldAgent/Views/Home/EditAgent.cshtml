@@ -1,0 +1,143 @@
+﻿@model FieldAgent.Models.AgentVM
+@{
+    ViewBag.Title = "EditAgent";
+}
+
+<h2>Field Agent</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    @Html.Hidden("currentIdentifier",Model.Agent.Identifier)
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.FirstName)
+            @Html.TextBoxFor(m => m.Agent.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.FirstName)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.MiddleName)
+            @Html.TextBoxFor(m => m.Agent.MiddleName, new { @class = "form-control" })
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.LastName)
+            @Html.TextBoxFor(m => m.Agent.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.LastName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.BirthDate)
+            @Html.LabelFor(m => m.Agent.BirthDate, Model.Agent.BirthDate)
+            @Html.TextBoxFor(m => m.Agent.BirthDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.Agent.BirthDate)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.Height)
+            @Html.TextBoxFor(m => m.Agent.Height, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.Agent.Height)
+        </div>
+    </div>
+    <h3>Agency</h3>
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.Identifier)
+            @Html.TextBoxFor(m => m.Agent.Identifier, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.Identifier)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.Agency)
+            @Html.DropDownListFor(m => m.Agent.Agency, Model.Agencies, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.Agency)
+        </div>
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.SecurityClearance)
+            @Html.DropDownListFor(m => m.Agent.SecurityClearance, Model.Clearances, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Agent.SecurityClearance)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col">
+            @Html.LabelFor(m => m.Agent.ActivationDate)
+            @Html.TextBoxFor(m => m.Agent.ActivationDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.Agent.ActivationDate)
+        </div>
+        <div class="form-group col align-self-end">
+            @Html.CheckBoxFor(m => m.Agent.IsActive)
+            @Html.LabelFor(m => m.Agent.IsActive)
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <img src=@Model.Agent.PicturUrl>
+        </div>
+    </div>
+    <div class="row">
+
+        @Html.LabelFor(m => m.Agent.PicturUrl)
+        @Html.TextBoxFor(m => m.Agent.PicturUrl, new { @class = "form-control" })
+
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <h3>Aliases</h3>
+            <div class="row">
+                @foreach (var alias in Model.Aliases)
+                {
+                    <label class="col-4">
+                        <input type="checkbox" name="SelectedAliasIds" value="@alias.Id" @(Model.HasAlias(alias.Id) ? " checked" : "") />
+                        @alias.Name
+                    </label>
+                }
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Save</button>
+    <A class="btn btn-secondary" href="/">Cancel</A>
+}
+
+<div class="row">
+    <div class="col-8">
+        <h3>Assignments</h3>
+    </div>
+    <div class="col-4">
+        @Html.ActionLink("Add An Assignment", "AddAssignment/"+ Model.Agent.Identifier, null , new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+@if (Model.Agent.Assignments.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Start</th>
+                <th>End</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var a in Model.Agent.Assignments.OrderBy(a=>a.StartDate))
+            {
+            <tr>
+                <td>@ViewBag.countries[a.CountryCode]</td>
+                <td>@a.StartDate.ToString("MM/dd/yyyy")</td>
+                <td>@a.ProjectedEndDate.ToString("MM/dd/yyyy")</td>
+                <td>
+                    <a href="/Home/DeleteAssignment/@a.Identifier/@a.AssignmentIdentifier" class="btn btn-danger">Delete</a>
+                    <a href="/Home/EditAssignment/@a.Identifier/@a.AssignmentIdentifier" class="btn btn-secondary">View/Edit</a>
+                </td>
+            </tr>
+            }
+
+
+        </tbody>
+
+    </table>
+}else
+{
+    <div class="alert alert-warning">
+    No Assignments.
+    </div>
+}

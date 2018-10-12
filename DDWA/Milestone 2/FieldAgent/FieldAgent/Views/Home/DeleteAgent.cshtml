@@ -1,0 +1,29 @@
+﻿@model FieldAgent.Models.Agent
+@{
+    ViewBag.Title = "DeleteAgent";
+}
+
+<h2>Delete @Model.FirstName @Model.LastName</h2>
+
+<p>
+    Assignments: @Model.Assignments.Count()<br />
+    Deletions are permanent.<br />
+    @if (Model.Assignments.Count() > 0)
+    {
+        @:Both @Model.FirstName and their @Model.Assignments.Count() assignments will be deleted forever.
+    }else
+    {
+        @:@Model.FirstName will be deleted forever.
+    }
+
+</p>
+
+<p>Continue?</p>
+@using (Html.BeginForm("DeleteAgent", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Identifier)
+
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a href="/Home/Index" class="btn btn-secondary">Cancel</a>
+}
+

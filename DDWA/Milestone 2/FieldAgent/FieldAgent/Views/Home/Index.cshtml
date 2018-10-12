@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FieldAgent.Models.Agent>
+@{
+    ViewBag.Title = "Home";
+}
+<div class="row">
+    <div class="col-8">
+    <h2>Home</h2>
+        </div>
+    <div class="col-4">
+        @Html.ActionLink("Add An Agent", "AddAgent", null, new { @class="btn btn-primary"})
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Field Agent</th>
+            <th>Agency</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (var a in Model)
+            {
+                <tr>
+                    <td><a href="/Home/EditAgent/@a.Identifier">@a.FirstName @a.MiddleName @a.LastName</a></td>
+                    <td>@a.Agency</td>
+                    <td>
+                        <a href="/Home/DeleteAgent/@a.Identifier" class="btn btn-danger">Delete</a>
+                        <a href="/Home/AddAssignment/@a.Identifier" class="btn btn-primary">Add An Assignment</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

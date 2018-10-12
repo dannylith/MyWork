@@ -1,0 +1,35 @@
+Snickers,1.25,10
+KitKat,1.25,10
+Twinkie,1.50,5
+Ding Dong,1.75,4
+Nutty Bar,0.75,25
+Salted Nut Roll,1.65,10
+M&M's,1.10,15
+Payday,1.25,12
+Almond Joy,1.25,12
+Mounds,1.25,15
+Milky Way,1.25,15
+Reese's Pieces,1.35,10
+Swedish Fish,1.45,10
+Mike and Ike,1.45,10
+Pringles,1.85,10
+Cheeze-Its,0.85,10
+Doritos,0.95,10
+Pretzels,0.75,10
+Peanuts,2.45,14
+Smoked Almonds,3.10,12
+Club Crackers,1.10,10
+Cheese Tube,2.65,0
+Anchovies,3.65,10
+Craisins,2.45,10
+Mint Toast,2.20,10
+Waffle Pudding,3.15,10
+Coke - 20oz,2.25,10
+Coke Zero,1.75,10
+Diet Coke,1.75,10
+Pepsi,1.75,10
+Sprite,1.75,10
+Dr. Pepper,1.75,10
+Juicy Fruit,0.85,12
+Big Red,0.85,12
+Double Mint Gum,0.85,12

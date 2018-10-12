@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodToTheMadness", "MethodToTheMadness\MethodToTheMadness.csproj", "{C460477E-6B87-4FAD-B9BB-37293647017D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C460477E-6B87-4FAD-B9BB-37293647017D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C460477E-6B87-4FAD-B9BB-37293647017D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C460477E-6B87-4FAD-B9BB-37293647017D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C460477E-6B87-4FAD-B9BB-37293647017D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3788A8A-18A2-4EBF-B39E-00166E73BF29}
+	EndGlobalSection
+EndGlobal
